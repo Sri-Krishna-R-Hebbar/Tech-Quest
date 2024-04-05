@@ -1,0 +1,2 @@
+# Disable line ending normalization for specific files
+*.json -text
