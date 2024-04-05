@@ -12,9 +12,13 @@ function validateAndSubmit() {
         return; // Exit the function without further validation
     }
 
+    // Initialize an object to store form data
+    var formData = {};
+
     // Loop through each textarea except for "Name" and "Team" sections
     for (var i = 1; i < textareas.length - 1; i++) {
         var textarea = textareas[i];
+        var fieldName = textarea.getAttribute('name'); // Get the name attribute of the textarea
         var value = textarea.value.trim();
 
         // Check if textarea value is empty or less than 50 characters
@@ -22,8 +26,37 @@ function validateAndSubmit() {
             alert('Please fill out all sections with at least 50 characters.');
             return; // Exit the function if validation fails
         }
+
+        // Add the field name and value to the formData object
+        formData[fieldName] = value;
     }
 
     // If all sections except for "Name" and "Team" are filled with at least 50 characters, submit the pitch
-    submitPitch();
+    // Send the form data to the server
+    sendDataToServer(formData);
+}
+
+// Function to send form data to the server
+function sendDataToServer(formData) {
+    fetch('http://example.com/submit-pitch', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Pitch submitted successfully:', data);
+        // Optionally, perform any additional actions after successful submission
+    })
+    .catch(error => {
+        console.error('Error submitting pitch:', error);
+        // Handle errors
+    });
 }
