@@ -1,0 +1,6 @@
+black=#000000
+brown-d=#663333
+brown-l=#996633
+green-l=#999966
+orange-l=#ff9966
+yellow-l=#ffcc66
