@@ -1,0 +1,38 @@
+:root {
+    --black:    #000000;
+    --brown-d:  #663333;
+    --brown-l:  #996633;
+    --green-l:  #999966;
+    --orange-l: #ff9966;
+    --yellow-l: #ffcc66;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to top left, var(--black), var(--brown-l),var(--green-l));
+    color: var(--orange-l);
+    font-family: "Kode Mono", monospace;
+    display: grid;  /* Grid style to make it easier*/
+    place-items: center; /* All components will be placed in center*/
+    height: 100vh; /* height is 100 % of the view port*/
+    background-color: black;
+    margin: 0rem; /* no margin cause we will be using blur*/
+    overflow: hidden;
+    user-select: none;
+}
+
+h1 {
+    margin: 0%;
+    position: absolute;
+    height: 90vh;
+    font-size: 72px;
+}
+div {
+    text-align: center;
+    width: 40vw;
+    height: 50vh;
+    padding: 10px;
+    border: 5px solid var(--yellow-l);
+    margin: 0;
+  }
