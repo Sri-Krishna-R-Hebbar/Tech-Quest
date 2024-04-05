@@ -1,0 +1,54 @@
+:root {
+    --black:    #000000;
+    --brown-d:  #663333;
+    --brown-l:  #996633;
+    --green-l:  #999966;
+    --orange-l: #ff9966;
+    --yellow-l: #ffcc66;
+}
+
+body {
+    width: 100%;
+    background-image: linear-gradient(to top left, var(--black), var(--brown-l),var(--green-l));
+    color: var(--orange-l);
+    font-family: "Kode Mono", monospace;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: black;
+    margin: 0rem;
+    overflow: hidden;
+    user-select: none;
+    text-align: center;
+}
+
+#name {
+    position: absolute;
+    top: 20px;
+    left: 80vw;
+    padding: 10px;
+}
+
+#main {
+    width: 50px;
+    height: 50px;
+    background-color: var(--yellow-l);
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#dashboard {
+    position: absolute;
+    width: 90%;
+    top: 10vh;
+    height: 80vh;
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--green-l);
+    border-radius: 40px;
+    max-width: 100%;
+    overflow: auto;
+}

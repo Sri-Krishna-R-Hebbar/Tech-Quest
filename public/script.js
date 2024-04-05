@@ -2,20 +2,20 @@ const investorSignupForm = document.getElementById("investor-signup-form");
 
 investorSignupForm.addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission behavior
-    
+
     // Get form input values
     const firstName = document.getElementById("first-name").value;
     const lastName = document.getElementById("last-name").value;
     const email = document.getElementById("email-lawyer").value;
     const password = document.getElementById("password-lawyer").value;
     const confirmPassword = document.getElementById("confirm-password-lawyer").value;
-    
+
     // Validate password and confirm password
     if (password !== confirmPassword) {
         alert("Password and Confirm Password must match.");
         return;
     }
-    
+
     // Prepare data for sending to server
     const formData = {
         firstName: firstName,
@@ -23,7 +23,7 @@ investorSignupForm.addEventListener("submit", function(event) {
         email: email,
         password: password
     };
-    
+
     // Send form data to server
     fetch('/signup/investor', {
         method: 'POST',
@@ -48,20 +48,20 @@ investorSignupForm.addEventListener("submit", function(event) {
 const startupSignupForm = document.getElementById("startup-signup-form");
 startupSignupForm.addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission behavior
-    
+
     // Get form input values
     const firstName = document.getElementById("client-first-name").value;
     const lastName = document.getElementById("client-last-name").value;
     const email = document.getElementById("client-email").value;
     const password = document.getElementById("client-password").value;
     const confirmPassword = document.getElementById("client-confirm-password").value;
-    
+
     // Validate password and confirm password
     if (password !== confirmPassword) {
         alert("Password and Confirm Password must match.");
         return;
     }
-    
+
     // Prepare data for sending to server
     const formData = {
         firstName: firstName,
@@ -69,7 +69,7 @@ startupSignupForm.addEventListener("submit", function(event) {
         email: email,
         password: password
     };
-    
+
     // Send form data to server
     fetch('/signup/startup', {
         method: 'POST',
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const investorLoginForm = document.getElementById("investor-login-form");
 investorLoginForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    
+
     const email = document.getElementById("login-email-lawyer").value;
     const password = document.getElementById("login-password-lawyer").value;
 
@@ -168,7 +168,7 @@ investorLoginForm.addEventListener("submit", function(event) {
 const startupLoginForm = document.getElementById("startup-login-form");
 startupLoginForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    
+
     const email = document.getElementById("client-login-email").value;
     const password = document.getElementById("client-login-password").value;
 

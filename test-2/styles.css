@@ -1,0 +1,123 @@
+:root {
+  --black:    #000000;
+  --brown-d:  #663333;
+  --brown-l:  #996633;
+  --green-l:  #999966;
+  --orange-l: #ff9966;
+  --yellow-l: #ffcc66;
+}
+
+body {
+  width: 100%;
+  background-image: linear-gradient(to top left, var(--black), var(--brown-l),var(--green-l));
+  color: var(--orange-l);
+  font-family: "Kode Mono", monospace;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: black;
+  margin: 0rem;
+  overflow: hidden;
+  user-select: none;
+  text-align: center;
+}
+
+h1 {
+  margin: 0%;
+  position: absolute;
+  height: 99vh;
+  font-size: 77px;
+  text-shadow: 0 4px 2px var(--black);
+}
+
+.container {
+  max-width: 40vw;
+  margin-top: 20px;
+  padding: 20px;
+  border: 5px solid var(--yellow-l);
+  border-radius: 30px;
+  position: relative;
+}
+
+.form-container {
+  display: none;
+}
+
+.form-container.hidden {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 8px;
+  border: 1px solid var(--brown-d);
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--black);
+  color: var(--brown-l);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--yellow-l);
+}
+
+.toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green-l);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--black);
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.toggle input[type="checkbox"]:checked + label {
+  background-color: var(--orange-l);
+}
+
+.toggle input[type="checkbox"]:checked + label::after {
+  transform: translateX(20px);
+}

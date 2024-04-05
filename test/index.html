@@ -8,9 +8,13 @@
 </head>
 <body>
   <div class="container">
-    <div class="form-container">
+    <div class="toggle">
+      <input type="checkbox" id="toggle-form" onchange="toggleForm()">
+      <label for="toggle-form"></label>
+    </div>
+    <div id="login-form" class="form-container">
       <h2>Login</h2>
-      <form id="login-form">
+      <form>
         <div class="form-group">
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" required>
@@ -22,9 +26,9 @@
         <button type="submit">Login</button>
       </form>
     </div>
-    <div class="form-container hidden">
+    <div id="signup-form" class="form-container hidden">
       <h2>Sign Up</h2>
-      <form id="signup-form">
+      <form>
         <div class="form-group">
           <label for="firstName">First Name:</label>
           <input type="text" id="firstName" name="firstName" required>
@@ -49,7 +53,6 @@
       </form>
     </div>
   </div>
-  <div class="toggle-btn" onclick="toggleForm()">Sign Up</div>
   <script src="script.js"></script>
 </body>
 </html>

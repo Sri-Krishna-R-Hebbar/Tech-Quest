@@ -8,7 +8,7 @@ const { Investor, Startup } = require('./models');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://localhost:27017/investup', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://127.0.0.1:27017/investup', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -19,12 +19,10 @@ mongoose.connect('mongodb://localhost:27017/investup', { useNewUrlParser: true, 
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Hash function using SHA-256
 function sha256(data) {
   return crypto.createHash('sha256').update(data).digest('hex');
 }
 
-// Signup routes
 app.post('/signup/investor', async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
@@ -41,7 +39,7 @@ app.post('/signup/investor', async (req, res) => {
 app.post('/signup/startup', async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
-    const hashedPassword = sha256(password); // Hash password
+    const hashedPassword = sha256(password); 
     const startup = new Startup({ firstName, lastName, email, password: hashedPassword });
     await startup.save();
     res.status(201).send('Startup signed up successfully');
@@ -51,14 +49,13 @@ app.post('/signup/startup', async (req, res) => {
   }
 });
 
-// Login routes
 app.post('/login/investor', async (req, res) => {
   try {
     const { email, password } = req.body;
-    const hashedPassword = sha256(password); // Hash provided password
+    const hashedPassword = sha256(password); 
     const investor = await Investor.findOne({ email, password: hashedPassword });
     if (investor) {
-      res.redirect('/home.html'); // Redirect to home.html
+      res.redirect('/home.html'); 
     } else {
       res.status(401).send('Invalid email or password');
     }
@@ -71,10 +68,10 @@ app.post('/login/investor', async (req, res) => {
 app.post('/login/startup', async (req, res) => {
   try {
     const { email, password } = req.body;
-    const hashedPassword = sha256(password); // Hash provided password
+    const hashedPassword = sha256(password); 
     const startup = await Startup.findOne({ email, password: hashedPassword });
     if (startup) {
-      res.redirect('/home.html'); // Redirect to home.html
+      res.redirect('/home.html'); 
     } else {
       res.status(401).send('Invalid email or password');
     }
@@ -84,7 +81,6 @@ app.post('/login/startup', async (req, res) => {
   }
 });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
