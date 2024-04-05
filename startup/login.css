@@ -9,7 +9,6 @@
 
 body {
     width: 100%;
-    height: 100vh;
     background-image: linear-gradient(to top left, var(--black), var(--brown-l),var(--green-l));
     color: var(--orange-l);
     font-family: "Kode Mono", monospace;
@@ -17,16 +16,18 @@ body {
     place-items: center; /* All components will be placed in center*/
     height: 100vh; /* height is 100 % of the view port*/
     background-color: black;
-    margin: 0rem; /* no margin cause we will be using blur*/
+    margin: 0rem;
     overflow: hidden;
     user-select: none;
+    
 }
 
 h1 {
     margin: 0%;
     position: absolute;
     height: 90vh;
-    font-size: 72px;
+    font-size: 77px;
+    text-shadow: 0 4px 2px var(--black);
 }
 div {
     text-align: center;
