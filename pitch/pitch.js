@@ -38,25 +38,25 @@ function validateAndSubmit() {
 
 // Function to send form data to the server
 function sendDataToServer(formData) {
-    fetch('http://example.com/submit-pitch', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+    fetch('http://localhost:4500/submit-pitch', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
     })
     .then(data => {
-        console.log('Pitch submitted successfully:', data);
-        // Optionally, perform any additional actions after successful submission
+      console.log('Pitch submitted successfully:', data);
+      // Optionally, perform any additional actions after successful submission
     })
     .catch(error => {
-        console.error('Error submitting pitch:', error);
-        // Handle errors
+      console.error('Error submitting pitch:', error);
+      // Handle errors
     });
-}
+  }
