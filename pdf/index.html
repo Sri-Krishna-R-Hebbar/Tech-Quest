@@ -1,0 +1,43 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Data</title>
+</head>
+<body>
+    <h1>Startup Data</h1>
+    <div id="startupList"></div>
+
+    <script>
+        // Fetch data from backend API
+        fetch('/api/startups')
+            .then(response => response.json())
+            .then(data => {
+                const startupListDiv = document.getElementById('startupList');
+                data.forEach(startup => {
+                    const startupElement = document.createElement('div');
+                    startupElement.innerHTML = `
+                    <h2>${startup.name}</h2>
+                    <p><strong>Email:</strong> ${startup.email}</p>
+                    <p><strong>Executive Summary:</strong> ${startup.executiveSummary}</p>
+                    <p><strong>Problem Statement:</strong> ${startup.problemStatement}</p>
+                    <p><strong>Solution:</strong> ${startup.solution}</p>
+                    <p><strong>Patent Status:</strong> ${startup.patentStatus}</p>
+                    <p><strong>Market Analysis:</strong> ${startup.marketAnalysis}</p>
+                    <p><strong>Business Model:</strong> ${startup.businessModel}</p>                    <p><strong>Go-to-Market Strategy:</strong> ${startup.goToMarketStrategy}</p>
+                    <p><strong>Financial Projections:</strong> ${startup.financialProjections}</p>
+                    <p><strong>Funding Needs:</strong> ${startup.fundingNeeds}</p>
+                    <p><strong>Exit Strategy:</strong> ${startup.exitStrategy}</p>
+                    <p><strong>Progress:</strong> ${startup.progress}</p>
+                    <p><strong>About Team:</strong> ${startup.team}</p>
+                    `;
+                    startupListDiv.appendChild(startupElement);
+                });
+            })
+            .catch(error => console.error('Error fetching startup data:', error));
+    </script>
+</body>
+</html>
