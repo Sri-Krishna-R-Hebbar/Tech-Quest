@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const session = require('express-session');
 const { Investor, Startup } = require('./models');
 
 const app = express();
@@ -78,6 +79,43 @@ app.post('/login/startup', async (req, res) => {
   } catch (error) {
     console.error('Error logging in startup:', error);
     res.status(500).send('Error logging in startup');
+  }
+});
+
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Route to fetch user's name
+app.get('/getUserName', async (req, res) => {
+  try {
+    // Check if user information is stored in session
+    const user = req.session.user;
+
+    if (!user) {
+      return res.status(401).send('Unauthorized');
+    }
+
+    // Fetch user from the database based on their role
+    let userFromDB;
+    if (user.role === 'investor') {
+      userFromDB = await Investor.findById(user._id);
+    } else if (user.role === 'startup') {
+      userFromDB = await Startup.findById(user._id);
+    }
+
+    if (!userFromDB) {
+      return res.status(404).send('User not found');
+    }
+
+    // Send the user's name as JSON
+    res.json({ name: `${userFromDB.firstName} ${userFromDB.lastName}` });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
   }
 });
 
