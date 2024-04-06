@@ -13,9 +13,19 @@ const PORT = process.env.PORT || 7900;
 
 // Serve static files from the public directory
 app.use(express.static('chatbot'));
+const fs = require('fs');
 
+
+// Construct the absolute file path
+const filePath = path.join(__dirname, 'apikey.txt');
+
+try {
+    // Read the API key from the file
+    API_KEY = fs.readFileSync(filePath, 'utf8').trim();
+} catch (error) {
+    console.error('Error reading API key:', error);
+}
 const MODEL_NAME = "gemini-pro";
-const API_KEY = "AIzaSyAmpf13AvWD5ZW5imrz2ib5zZflqP5POk4"; 
 
 async function runChat(userInput) {
   const genAI = new GoogleGenerativeAI(API_KEY);

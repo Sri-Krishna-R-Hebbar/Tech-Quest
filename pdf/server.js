@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 7901;
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/investup', { useNewUrlParser: true, useUnifiedTopology: true })
