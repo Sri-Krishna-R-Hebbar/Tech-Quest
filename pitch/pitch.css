@@ -7,9 +7,6 @@
   --orange-l: #ff9966;
   --yellow-l: #ffcc66;
 }
-
-
-
 body {
   font-family: "Kode Mono", monospace;
   color: var(--orange-l);

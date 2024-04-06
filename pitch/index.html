@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pitch.css">
+    <style>
+        ::-webkit-scrollbar {
+        width: 12px; 
+        border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb {
+        background-color: #999966; 
+        border-radius: 6px;
+        }
+        ::-webkit-scrollbar-track {
+        background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Pitch Template</h1>
+        <p>Helping startups craft compelling pitches</p>
+    </header>
+
+    <form id="pitchForm" action="/submitPitch" method="post">
+        <section id="template">
+
+            <div class="pitchdeck">
+                <label for="Name">1. Name:</label>
+                <input type="text" id="Name" name="Name">
+            </div>
+
+            <div class="pitchdeck">
+                <label for="Email">2. Email:</label>
+                <input type="email" id="Email" name="Email">
+            </div>
+            
+            <div class="pitchdeck">
+                <label for="executive_summary">3. Executive Summary:</label>
+                <textarea id="executive_summary" name="executive_summary" rows="4" cols="50"></textarea>
+            </div>
+        
+            <div class="pitchdeck">
+                <label for="problem_statement">4. Problem Statement:</label>
+                <textarea id="problem_statement" name="problem_statement" rows="4" cols="50"></textarea>
+            </div>
+        
+            <div class="pitchdeck">
+                <label for="solution">5. Solution:</label>
+                <textarea id="solution" name="solution" rows="4" cols="50"></textarea>
+            </div>
+            <div class="pitchdeck">
+                <label>6. Patent status:</label><br>
+                <input type="radio" id="patented" name="patent_status" value="patented">
+                <label for="patented">Patented</label><br>
+                
+                <input type="radio" id="to_be_patented" name="patent_status" value="to_be_patented">
+                <label for="to_be_patented">To be patented</label><br>
+            </div>
+             
+            <div class="pitchdeck">
+                <label for="market_analysis">7. Market Analysis:</label>
+                <textarea id="market_analysis" name="market_analysis" rows="4" cols="50"></textarea>
+            </div>
+        
+            <div class="pitchdeck">
+                <label for="business_model">8. Business Model:</label>
+                <textarea id="business_model" name="business_model" rows="4" cols="50"></textarea>
+            </div>
+        
+            <div class="pitchdeck">
+                <label for="go_to_market_strategy">9. Go-to-Market Strategy:</label>
+                <textarea id="go_to_market_strategy" name="go_to_market_strategy" rows="4" cols="50"></textarea>
+            </div>
+
+            <div class="pitchdeck">
+                <label for="financial_projections">10. Financial Projections:</label>
+                <textarea id="financial_projections" name="financial_projections" rows="4" cols="50"></textarea>
+            </div>
+        
+            <div class="pitchdeck">
+                <label for="funding_needs">11. Funding Needs:</label>
+                <textarea id="funding_needs" name="funding_needs" rows="4" cols="50"></textarea>
+            </div>
+        
+            <div class="pitchdeck">
+                <label for="exit_strategy">12. Exit Strategy:</label>
+                <textarea id="exit_strategy" name="exit_strategy" rows="4" cols="50"></textarea>
+            </div>
+        
+            <div class="pitchdeck">
+                <label for="progress">13. Progress:</label>
+                <textarea id="progress" name="progress" rows="4" cols="50"></textarea>
+            </div>
+        
+            
+            <div class="pitchdeck">
+                <label for="team">14. About Team:</label>
+                <textarea id="team" name="team" rows="4" cols="50"></textarea>
+            </div>
+
+            <button type="submit">Submit Pitch</button>
+        </section>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 Investup. All rights reserved.</p>
+    </footer>
+</body>
+</html>
