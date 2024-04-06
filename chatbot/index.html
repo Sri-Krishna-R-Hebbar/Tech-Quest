@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"><span class="non-hidden">Lawyer</span>
+                    <a href="#"><span class="non-hidden"></span>
                         <div class="svg hidden">
                             <?xml version="1.0" encoding="utf-8"?>
                             <svg fill="white" width="35px" height="35px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg">
@@ -85,10 +85,9 @@
     <script>
         async function sendMessage() {
         const userInput = document.getElementById('user-input').value;
-
+        document.getElementById('user-input').value='';
         // Display user message
         displayMessage('You', userInput, 'user-message');
-
         // Send user input to the server
         const response = await fetch('/chat', {
             method: 'POST',
