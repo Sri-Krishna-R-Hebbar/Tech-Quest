@@ -1,3 +1,4 @@
 chat/backend/node_modules/
 chat/frontend/node_modules/
 /node_modules
+/chatbot/apikey.txt

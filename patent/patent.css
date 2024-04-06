@@ -1,14 +1,35 @@
+:root {
+    --black:    #000000;
+    --brown-d:  #663333;
+    --brown-l:  #996633;
+    --green-l:  #999966;
+    --orange-l: #ff9966;
+    --yellow-l: #ffcc66;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
+    color: var(--black);
+    background-color: var(--yellow-l);
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #333;
+    color: var(--brown-d);
 }
 
 p {
-    color: #666;
+    color: var(--brown-l);
     line-height: 1.6;
 }
 
@@ -22,25 +43,29 @@ label {
 
 input[type="text"],
 input[type="submit"] {
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
     width: 100%;
-    border: 1px solid #ccc;
+    color:#ff9966;
+    background-color: black;
+    border: 1px solid var(--brown-l);
     border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--orange-l);
+    color: var(--black);
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: var(--green-l);
 }
 
 a {
-    color: #007bff;
+    color: var(--orange-l);
     text-decoration: none;
 }
 
