@@ -4,15 +4,15 @@ const mongoose = require('mongoose');
 const { Pitch, Startup } = require('./pitchModel'); // Assuming pitchModel.js exports both Pitch and Startup models
 
 const app = express();
-
+app.use(express.static('pitch'));
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/investup', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://0.0.0.0:27017/investup', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Failed to connect to MongoDB', err));
 
 // Middleware for parsing request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('pitch'));
+
 
 // Route for submitting pitch
 app.post('/submitPitch', async (req, res) => {
@@ -53,4 +53,4 @@ app.post('/submitPitch', async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+app.listen(4500, () => console.log('Server running on port 5000'));
